@@ -8,6 +8,8 @@ services:
       resources:
         limits:
           memory: 700m
+    networks:
+      - bank
   loans:
     image: "alaa0tabet/loans:v1"
     container_name: loans-ms
@@ -17,6 +19,8 @@ services:
       resources:
         limits:
           memory: 700m
+    networks:
+      - bank
   cards:
     image: "alaa0tabet/cards:v1"
     container_name: cards-ms
@@ -26,3 +30,8 @@ services:
       resources:
         limits:
           memory: 700m
+    networks:
+      - bank
+networks:
+  bank:
+     driver: "bridge"
